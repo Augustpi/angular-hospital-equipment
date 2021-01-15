@@ -1,10 +1,11 @@
-# AngularHospitalEquipment
+# Angular Hospital Equipments Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
+Angular hospital equipments project
+## REST API and Development server
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For a dev server run `npm run server: all` and this also runs JSON Server for the fake REST API.
+After that you can navigate to `http://localhost:4200/`.
+Also navigate in order to REST API to http://localhost:3000/clinics, http://localhost:3000/equipments
 
 ## Code scaffolding
 
@@ -14,14 +15,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## fake REST API Resources, (Json-Server)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You should run `npm run server: all` firstly for fake (dummy) api repositories.
+Navigate for REST API documentation to http://localhost:3000/
 
-## Running end-to-end tests
+# Keep in touch with me
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Avni Onur Pehlivan @Augustpi
+https://github.com/Augustpi
+https://www.linkedin.com/in/avni-onur-pehlivan-5005b018/

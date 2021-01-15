@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-hospital-equipment';
+  title = 'Medyana Hospital';
+  links = [
+    { path: '/clinics', icon: 'medical_services', title: 'Clinics' },
+    { path: '/equipments', icon: 'construction', title: 'Equipments' },
+  ];
+
+  constructor() {}
+
 }

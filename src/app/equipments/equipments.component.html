@@ -1,0 +1,24 @@
+<div class="equipment-containers">
+  <!-- <div class="clinic-list">
+    <app-clinic-list [isDelete]="false" [clinics]="clinics" (selected)="selectClinic($event)">
+    </app-clinic-list>
+  </div> -->
+
+  <div class="equipment-list">
+    <app-equipment-list
+      [equipments]="equipments$"
+      (selected)="selectEquipment($event)"
+      (deleted)="deleteEquipment($event)"
+    >
+    </app-equipment-list>
+  </div>
+
+  <div class="equipment-details">
+    <app-equipment-details
+      [equipment]="selectedEquipment"
+      (saved)="saveEquipment($event)"
+      (cancelled)="resetEquipment($event)"
+    >
+    </app-equipment-details>
+  </div>
+</div>

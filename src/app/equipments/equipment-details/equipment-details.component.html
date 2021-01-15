@@ -1,0 +1,86 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span *ngIf="selectedEquipment.id; else noSelection">{{
+        originalName
+      }}</span>
+      <ng-template #noSelection>New Equipment</ng-template>
+    </mat-card-title>
+  </mat-card-header>
+  <form #form="ngForm" (submit)="saved.emit(selectedEquipment)">
+    <mat-card-content>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Name"
+          type="text"
+          name="clinicName"
+          required
+          [(ngModel)]="selectedEquipment.name"
+        />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="selectedEquipment.date"
+        name="date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Amount"
+        type="number"
+        name="amount"
+        min="1"
+        required
+        [(ngModel)]="selectedEquipment.amount"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Price"
+        min="0.01"
+        type="number"
+        name="price"
+        [(ngModel)]="selectedEquipment.price"
+        required
+      />
+    </mat-form-field>
+
+    <section>
+      <h4>{{ selectedEquipment.usage }}% usage</h4>
+      <mat-slider
+        class="full-width"
+        min="0"
+        max="100"
+        name="usage"
+        thumbLabel
+        [(ngModel)]="selectedEquipment.usage"
+      >
+      </mat-slider>
+    </section>
+    <mat-card-actions>
+      <button
+        [disabled]="form.invalid"
+        type="submit"
+        mat-button
+        color="primary"
+      >
+        Submit
+      </button>
+      <button type="button" mat-button (click)="cancelled.emit()">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

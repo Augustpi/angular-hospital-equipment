@@ -1,0 +1,27 @@
+<div class="clinics-containers">
+  <div class="clinic-list">
+    <app-clinic-list
+      [clinics]="clinics$ | async"
+      [isDelete]="true"
+      [length]="length"
+      [pageSize]="pageSize"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="pageIndex"
+      (page)="handlePageEvent($event)"
+      (selected)="selectClinic($event)"
+      (deleted)="deleteClinic($event)"
+      (search)="search($event)"
+    >
+    </app-clinic-list>
+  </div>
+
+  <div class="clinic-details">
+    <app-clinic-details
+      [clinic]="selectedClinic"
+      (saved)="saveClinic($event)"
+      (cancelled)="resetClinic()"
+    >
+    </app-clinic-details>
+  </div>
+</div>

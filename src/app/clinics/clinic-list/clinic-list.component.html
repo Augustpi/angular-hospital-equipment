@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Clinic List </mat-card-title>
+  </mat-card-header>
+  <mat-paginator
+    (page)="page.emit($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex"
+  >
+  </mat-paginator>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Search..."
+      type="text"
+      name="search"
+      [(ngModel)]="searchField"
+      (ngModelChange)="search.emit(searchField)"
+    />
+  </mat-form-field>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let clinic of clinics"
+        (click)="selected.emit(clinic)"
+      >
+        <h3 matLine>{{ clinic.name }}</h3>
+        <button
+          *ngIf="isDelete"
+          mat-icon-button
+          color="warn"
+          (click)="deleted.emit(clinic.id); $event.stopImmediatePropagation()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
