@@ -3,13 +3,11 @@
 Angular hospital equipments project
 ## REST API and Development server
 
+  `npm run server: all`
+
 For a dev server run `npm run server: all` and this also runs JSON Server for the fake REST API.
 After that you can navigate to `http://localhost:4200/`.
 Also navigate in order to REST API to http://localhost:3000/clinics, http://localhost:3000/equipments
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
