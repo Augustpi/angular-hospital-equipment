@@ -181,5 +181,15 @@
       "name": "onur"
     }
   ],
-  "equipments": []
+  "equipments": [
+    {
+      "id": 1,
+      "name": "asfdsadfa",
+      "date": "2021-01-15T15:16:33.351Z",
+      "amount": 5,
+      "price": 0.01,
+      "usage": 50,
+      "clinicId": 0
+    }
+  ]
 }
