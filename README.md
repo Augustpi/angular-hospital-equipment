@@ -18,7 +18,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 You should run `npm run server: all` firstly for fake (dummy) api repositories.
 Navigate for REST API documentation to http://localhost:3000/
 
-# Keep in touch with me
+## Keep in touch
 
 Avni Onur Pehlivan @Augustpi
 https://github.com/Augustpi
