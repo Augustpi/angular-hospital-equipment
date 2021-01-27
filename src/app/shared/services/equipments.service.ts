@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Equipment } from '../interfaces/equipment.interface';
-import { BASE_URL } from '../services/base';
+import { Equipment } from '../../../domain/entity/equipment.interface';
+import { BASE_URL } from '../core/base';
 import { NotificationService } from './notification.service';
 
 @Injectable({

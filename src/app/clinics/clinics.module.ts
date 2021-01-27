@@ -4,11 +4,13 @@ import { ClinicsRouterModule } from './clinics-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { ClinicsService } from '../shared/services/clinics.service';
+import { HttpInterceptorService } from '../shared/services/http-interceptor.service';
+
 import { ClinicsComponent } from './clinics.component';
 import { ClinicListComponent } from './clinic-list/clinic-list.component';
 import { ClinicDetailsComponent } from './clinic-details/clinic-details.component';
-import { ClinicsService } from '../shared/services/clinics.service';
-import { HttpInterceptorService } from '../shared/services/http-interceptor.service';
 
 @NgModule({
   imports: [

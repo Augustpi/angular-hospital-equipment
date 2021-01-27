@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Equipment } from 'src/app/shared/interfaces/equipment.interface';
+import { Equipment } from '../../../domain/entity/equipment.interface';
 
 @Component({
   selector: 'app-equipment-details',

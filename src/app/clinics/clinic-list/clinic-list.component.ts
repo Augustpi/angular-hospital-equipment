@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Clinic } from 'src/app/shared/interfaces/clinic.interface';
+import { Clinic } from '../../../domain/entity/clinic.interface';
 
 @Component({
   selector: 'app-clinic-list',

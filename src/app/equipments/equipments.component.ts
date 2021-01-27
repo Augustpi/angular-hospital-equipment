@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipment } from '../shared/interfaces/equipment.interface';
+import { Equipment } from '../../domain/entity/equipment.interface';
 import { EquipmentsService } from '../shared/services/equipments.service';
-import { ClinicsService } from '../shared/services/clinics.service';
-import { Clinic } from '../shared/interfaces/clinic.interface';
 import { Observable } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
@@ -17,7 +15,6 @@ export class EquipmentsComponent implements OnInit {
   selectedClinic = null;
   clinics = null;
 
-
   length = 500;
   pageSize = 10;
   pageIndex = 1;
@@ -30,7 +27,6 @@ export class EquipmentsComponent implements OnInit {
 
   constructor(
     private equipmentsService: EquipmentsService,
-    private clinicsService: ClinicsService
   ) { }
 
   ngOnInit(): void {
@@ -74,21 +70,23 @@ export class EquipmentsComponent implements OnInit {
   }
 
   updateEquipment(eq: Equipment) {
-    this.equipmentsService.updateEquipment(eq).pipe(
-      tap(() => this.loadEquipment(false))
+    this.equipmentsService
+    .updateEquipment(eq)
+    .pipe(tap(() => this.loadEquipment(false))
     ).subscribe();
   }
 
   createEquipment(eq: Equipment) {
-    this.equipmentsService.createEquipment(eq).pipe(
-      tap(() => this.loadEquipment(false))
-    ).subscribe();
+    this.equipmentsService
+    .createEquipment(eq)
+    .pipe(tap(() => this.loadEquipment(false)))
+    .subscribe();
   }
 
   deleteEquipment(id: number) {
-    this.equipmentsService.deleteEquipment(id).pipe(
-      tap(() => this.loadEquipment(false))
-    ).subscribe();
+    this.equipmentsService
+    .deleteEquipment(id)
+    .pipe(tap(() => this.loadEquipment(false))).subscribe();
     this.length -= 1;
   }
 

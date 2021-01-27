@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Clinic } from '../interfaces/clinic.interface';
-import { BASE_URL } from '../services/base';
+import { Clinic } from '../../../domain/entity/clinic.interface';
+import { BASE_URL } from '../core/base';
 import { NotificationService } from './notification.service';
+import ClinicRepository from 'src/usecases/repository/clinic.repository';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClinicsService {
-  model = 'clinics';
+export class ClinicsService implements ClinicRepository {
+  private model = 'clinics';
 
   constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
@@ -29,6 +30,7 @@ export class ClinicsService {
 
   createClinic(clinic: Clinic) {
     this.notificationService.notify('Clinic created');
+    console.log(this.http.post<Clinic>(this.getUrl(), clinic));
     return this.http.post<Clinic>(this.getUrl(), clinic);
   }
 

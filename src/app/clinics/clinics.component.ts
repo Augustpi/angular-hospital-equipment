@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Clinic } from '../shared/interfaces/clinic.interface';
-import { ClinicsService } from '../shared/services/clinics.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { ClinicsService } from '../shared/services/clinics.service';
+import { Clinic } from '../../domain/entity/clinic.interface';
 
 @Component({
   selector: 'app-clinics',
@@ -41,13 +41,14 @@ export class ClinicsComponent implements OnInit {
   }
 
   loadClinics(displayNotification: boolean, init: boolean = false) {
-    console.log(this.pageIndex);
-    this.clinics$ = this.clinicsService.getAllClinics(
-      displayNotification,
-      this.pageIndex,
-      this.pageSize,
-      this.searchText
-    );
+    this.clinics$ = this.clinicsService
+      .getAllClinics(
+        displayNotification,
+        this.pageIndex,
+        this.pageSize,
+        this.searchText
+      );
+
     if (init) {
       this.clinicsService
         .getAllClinics(displayNotification, this.pageIndex, 10000, null)
@@ -66,21 +67,24 @@ export class ClinicsComponent implements OnInit {
   }
 
   updateClinic(clinic: Clinic) {
-    this.clinicsService.updateClinic(clinic).pipe(
-      tap(() => this.loadClinics(false))
-    ).subscribe();
+    this.clinicsService
+      .updateClinic(clinic)
+      .pipe(tap(() => this.loadClinics(false)))
+      .subscribe();
   }
 
   createClinic(clinic: Clinic) {
-    this.clinicsService.createClinic(clinic).pipe(
-      tap(() => this.loadClinics(false))
-    ).subscribe();
+    this.clinicsService
+      .createClinic(clinic)
+      .pipe(tap(() => this.loadClinics(false)))
+      .subscribe();
   }
 
   deleteClinic(id: number) {
-    this.clinicsService.deleteClinic(id).pipe(
-      tap(() => this.loadClinics(false))
-    ).subscribe();
+    this.clinicsService
+      .deleteClinic(id)
+      .pipe(tap(() => this.loadClinics(false)))
+      .subscribe();
     this.length -= 1;
   }
 
